@@ -91,15 +91,24 @@ export default function LoginForm(props) {
     };
 
     return (
-        <Container fluid style={loginPageStyle}>
+        <Container
+            fluid
+            style={{
+                ...loginPageStyle,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                minHeight: "100vh"
+            }}
+        >
             {willRedirect === true ?
                 user.isAdmin === true ?
                     <Redirect to='/products' />
                 :
                     <Redirect to='/' />
             :
-                <Row className="justify-content-center w-100">
-                    <Col xs={12} md={8} lg={6} xl={4}>
+                <Row className="justify-content-center align-items-center w-100" style={{ minHeight: "100vh" }}>
+                    <Col xs={12} md={8} lg={6} xl={4} className="d-flex justify-content-center">
                         <Card className="shadow-lg" style={cardStyle}>
                             <Card.Body>
                                 <h2 className="text-center text-primary mb-4">Log In</h2>
